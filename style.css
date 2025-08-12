@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('marble\ bg.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 15px; /* ✅ space on left and right for mobile */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+
+.logo {
+  width: 120px;
+  border-radius: 15px;
+}
+
+h2 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.button {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.call {
+  background: linear-gradient(135deg, #007BFF, #0056b3);
+}
+
+.whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.location {
+  background: linear-gradient(135deg, #ff8c00, #ff6700);
+}
+
+.instagram {
+  background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
+}
