@@ -3,100 +3,180 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  /* Use the marble bg but utilize an overlay in HTML for darker tint */
   background: url('marble bg.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  animation: fadeIn 1s ease-in-out;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Dark Overlay for the background to make it premium */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Darker tint */
+  z-index: -1;
 }
 
 /* --- Glassmorphism container --- */
 .container {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 30px;
-  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.6); /* Darker semi-transparent bg */
+  padding: 40px;
+  border-radius: 24px;
   text-align: center;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 15px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  backdrop-filter: blur(12px);
-  animation: slideUp 1s ease-in-out;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  /* border: 1px solid rgba(212, 175, 55, 0.3); Subtle gold border */
+  animation: slideUp 0.8s ease-out;
 }
 
 .logo {
-  width: 120px;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  animation: float 3s ease-in-out infinite;
+  width: 130px;
+  height: auto;
+  border-radius: 50%; /* Circle logo looks more premium */
+  margin-bottom: 20px;
+  /* border: 3px solid #D4AF37; Gold border */
+  /* box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); */
+  animation: float 4s ease-in-out infinite;
 }
 
 h1 {
   margin: 0;
-  font-size: 28px;
-  color: #2c2c2c;
-  font-weight: 700;
-  letter-spacing: 1px;
-  animation: fadeIn 1.5s ease-in-out;
+  font-size: 26px;
+  color: #fff; /* White Text */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  background: linear-gradient(to right, #D4AF37, #FADD96, #D4AF37); /* Gold Gradient Text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h2 {
-  color: #444;
-  font-weight: 500;
-  margin-bottom: 25px;
-  font-size: 16px;
-  animation: fadeIn 2s ease-in-out;
+  color: #ddd;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #D4AF37;
+  margin: 10px auto 0;
 }
 
 /* --- Buttons --- */
+.links-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .button {
-  display: block;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
-  color: white;
-  padding: 15px;
-  margin: 12px 0;
-  border-radius: 12px;
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 50px; /* Pill shape */
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05); /* Very subtle fill */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.button i {
+  font-size: 18px;
+}
+
+/* Staggered Animation for buttons */
+.button {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+.button:nth-child(1) { animation-delay: 0.2s; }
+.button:nth-child(2) { animation-delay: 0.3s; }
+.button:nth-child(3) { animation-delay: 0.4s; }
+.button:nth-child(4) { animation-delay: 0.5s; }
+.button:nth-child(5) { animation-delay: 0.6s; }
+
 
 .button:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  transform: translateY(-5px);
+  background: #fff;
+  color: #000;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4); /* Gold glow */
+  border-color: #fff;
+}
+.button:hover i {
+    color: #bfa145; /* Gold icon on hover */
 }
 
-/* Different button colors */
-.call {
-  background: linear-gradient(135deg, #454647, #000000);
+/* Highlight Website Button */
+.website {
+  background: linear-gradient(135deg, #D4AF37, #C5A059);
+  color: #000;
+  font-weight: 600;
+  border: none;
+}
+.website:hover {
+  background: linear-gradient(135deg, #f0cf65, #e0b450);
+  padding-left: 25px; /* Subtle movement */
+  color: #000;
+}
+.website:hover i {
+    color: #000;
 }
 
-.whatsapp {
-  background: linear-gradient(135deg, #454647, #000000);
-}
-
-.location {
-  background: linear-gradient(135deg, #454647, #000000);
-}
-
-.instagram {
-  background: linear-gradient(135deg, #454647, #000000);
-}
+/* Specific styling can be minimal since unified theme is preferred, 
+   but let's add subtle hints if needed. For now, unified luxury black/gold 
+   is better than rainbow colors. */
 
 /* --- Animations --- */
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+@keyframes slideUp {
+  from {transform: translateY(30px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
 }
 
-@keyframes slideUp {
-  from {transform: translateY(50px); opacity: 0;}
+@keyframes fadeInUp {
+  from {transform: translateY(20px); opacity: 0;}
   to {transform: translateY(0); opacity: 1;}
 }
 
 @keyframes float {
   0%, 100% {transform: translateY(0);}
-  50% {transform: translateY(-10px);}
+  50% {transform: translateY(-8px);}
+}
+
+/* Pulse effect for the main button */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+.pulse-effect {
+  animation: fadeInUp 0.5s ease-out forwards 0.2s, pulse 2s infinite 1s; /* Combination */
 }
