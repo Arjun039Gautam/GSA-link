@@ -20,7 +20,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6); /* Darker tint */
-  z-index: -1;
+  z-index: 0;
 }
 
 /* --- Glassmorphism container --- */
@@ -36,6 +36,8 @@ body {
   -webkit-backdrop-filter: blur(15px);
   /* border: 1px solid rgba(212, 175, 55, 0.3); Subtle gold border */
   animation: slideUp 0.8s ease-out;
+  position: relative;
+  z-index: 1;
 }
 
 .logo {
@@ -121,6 +123,7 @@ h2::after {
 .button:nth-child(3) { animation-delay: 0.4s; }
 .button:nth-child(4) { animation-delay: 0.5s; }
 .button:nth-child(5) { animation-delay: 0.6s; }
+.button:nth-child(6) { animation-delay: 0.7s; }
 
 
 .button:hover {
@@ -148,6 +151,24 @@ h2::after {
 }
 .website:hover i {
     color: #000;
+}
+
+/* Pinterest Button Styling */
+.pinterest {
+  background: rgba(255, 255, 255, 0.05); /* Very subtle fill */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 500;
+}
+.pinterest:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  color: #000;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4); /* Gold glow */
+  border-color: #fff;
+}
+.pinterest:hover i {
+    color: #bfa145; /* Gold icon on hover */
 }
 
 /* Specific styling can be minimal since unified theme is preferred, 
@@ -179,4 +200,72 @@ h2::after {
 
 .pulse-effect {
   animation: fadeInUp 0.5s ease-out forwards 0.2s, pulse 2s infinite 1s; /* Combination */
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+  body {
+    background: url('marble bg.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 30px 20px;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+    z-index: 1;
+  }
+
+  .logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+
+  .links-wrapper {
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .button {
+    padding: 14px 18px;
+    font-size: 14px;
+    border-radius: 50px;
+  }
+
+  .button i {
+    font-size: 16px;
+  }
 }
